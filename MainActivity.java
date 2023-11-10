@@ -1,67 +1,30 @@
-package com.example.actvitylifecycle;
+package com.example.button;
 
 import androidx.appcompat.app.AppCompatActivity;
-
 import android.os.Bundle;
-import android.widget.Toast;
-
-import com.example.actvitylifecycle.R;
+import android.view.View;
+import android.widget.Button;
+import android.widget.TextView;
 
 public class MainActivity extends AppCompatActivity {
-
+    TextView gt;
+    Button gb;
     @Override
-
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        showToast("onCreate called");
+
+        // Find views by their IDs
+        Button gb = findViewById(R.id.gb);
+        final TextView gt = findViewById(R.id.gt);
+
+        // Set click listener for the button
+        gb.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                // Update the TextView with a greeting
+                gt.setText("Hello, Welcome!");
+            }
+        });
     }
-    @Override
-
-    protected void onStart() {
-        super.onStart();
-        showToast("OnStartcalled");
-    }
-
-    @Override
-
-    protected void onRestart() {
-        super.onRestart();
-        showToast("onRestartecalled");
-    }
-
-    @Override
-
-    protected void onResume() {
-        super.onResume();
-        showToast("onResumecalled");
-    }
-
-    @Override
-
-    protected void onPause() {
-        super.onPause();
-        showToast("onPauseCalled");
-    }
-    @Override
-
-    protected void onStop() {
-        super.onStop();
-        showToast("onStopCalled");
-    }
-    @Override
-
-    protected void onDestroy() {
-        super.onDestroy();
-        showToast("onDestroyCalled");
-    }
-
-    private void showToast(String message){
-        Toast.makeText(this, message, Toast.LENGTH_SHORT).show();
-    }
-
-
-
-
-
 }
