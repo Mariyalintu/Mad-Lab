@@ -1,30 +1,63 @@
-package com.example.button;
-
+package com.example.calculator;
 import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
-import android.widget.TextView;
-
+import android.widget.EditText;
 public class MainActivity extends AppCompatActivity {
-    TextView gt;
-    Button gb;
+    EditText num1,num2,ans;
+    Button addbtn,subbtn,mulbtn,divbtn;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        num1=findViewById(R.id.num1);
+        num2=findViewById(R.id.num2);
+        ans=findViewById(R.id.num3);
+        addbtn=findViewById(R.id.addbtn);
+        subbtn=findViewById(R.id.subbtn);
+        mulbtn=findViewById(R.id.mulbtn);
+        divbtn=findViewById(R.id.divbtn);
 
-        // Find views by their IDs
-        Button gb = findViewById(R.id.gb);
-        final TextView gt = findViewById(R.id.gt);
-
-        // Set click listener for the button
-        gb.setOnClickListener(new View.OnClickListener() {
+        addbtn. setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                // Update the TextView with a greeting
-                gt.setText("Hello, Welcome!");
+                int x=Integer.parseInt(num1.getText().toString());
+                int y=Integer.parseInt(num2.getText().toString());
+                int sum=x+y;
+                ans.setText(String.valueOf(sum));
             }
         });
+        subbtn. setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                int x=Integer.parseInt(num1.getText().toString());
+                int y=Integer.parseInt(num2.getText().toString());
+                int sum=x-y;
+                ans.setText(String.valueOf(sum));
+            }
+        });
+        mulbtn. setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                int x=Integer.parseInt(num1.getText().toString());
+                int y=Integer.parseInt(num2.getText().toString());
+                int sum=x*y;
+                ans.setText(String.valueOf(sum));
+            }
+        });
+        divbtn. setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                int x=Integer.parseInt(num1.getText().toString());
+                int y=Integer.parseInt(num2.getText().toString());
+                int sum=x/y;
+                ans.setText(String.valueOf(sum));
+            }
+        });
+
+
+
     }
 }
